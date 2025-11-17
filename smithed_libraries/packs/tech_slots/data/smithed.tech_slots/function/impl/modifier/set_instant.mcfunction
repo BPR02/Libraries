@@ -1,7 +1,7 @@
 # @public
 
 # set saddle slot
-item replace entity @s saddle with saddle[equippable={slot:"saddle",equip_sound:{sound_id:"minecraft:silent"}}]
+item replace entity @s saddle with saddle[equippable={slot:"saddle",equip_sound:"intentionally_empty"}]
 
 # run modifier instantly
 function smithed.tech_slots:impl/modifier/modify_saddle with storage smithed.tech_slots:data input

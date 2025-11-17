@@ -1,7 +1,7 @@
 # @public
 
 # set item if doesn't exist
-execute unless items entity @s armor.body * run return run item replace entity @s armor.body with minecraft:poisonous_potato[!minecraft:consumable, minecraft:equippable= {slot:"body",equip_sound:{sound_id:"minecraft:silent"}},enchantments={"minecraft:vanishing_curse":1,"minecraft:binding_curse":1},custom_data={smithed.tech_slots:{set:true}}]
+execute unless items entity @s armor.body * run return run item replace entity @s armor.body with minecraft:poisonous_potato[!minecraft:consumable, minecraft:equippable= {slot:"body",equip_sound:"intentionally_empty"},enchantments={"minecraft:vanishing_curse":1,"minecraft:binding_curse":1},custom_data={smithed.tech_slots:{set:true}}]
 
 # return early if smithed data is present
 execute if items entity @s armor.body *[minecraft:custom_data~{smithed.tech_slots:{set:true}}] run return 1
@@ -11,7 +11,7 @@ item modify entity @s armor.body smithed.tech_slots:impl/set_body_data
 
 # force silent equip sound
 data modify storage smithed.tech_slots:data temp.body set from entity @s equipment.body
-data modify storage smithed.tech_slots:data body merge value {components:{"minecraft:equippable":{slot:"body",equip_sound:{sound_id:"minecraft:silent"}}}}
+data modify storage smithed.tech_slots:data body merge value {components:{"minecraft:equippable":{slot:"body",equip_sound:"intentionally_empty"}}}
 item replace entity @s armor.body with air
 
 tag @s add smithed.tech_slots.target
